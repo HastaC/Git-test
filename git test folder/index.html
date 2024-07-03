@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | QR code component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  Improve your front-end skills by building projects
+
+  Scan the QR code to visit Frontend Mentor and take your coding skills to the next level
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+  <div class="section">
+    <p style="color: black;">Enter your text here</p>
+    <input type="text" placeholder="text or URL" id="qrtext">
+    <div id="imgbox">
+      <img src="" id="qrimg">
+    </div>
+    <button onclick="generateQR()">Generate QR Code</button>
+    
+ </div>
+
+<script>// Function to generate QR code
+  function generateQR() {
+      // Accessing DOM elements
+      let qrimg = document.getElementById("qrimg");
+      let qrtext = document.getElementById("qrtext");
+  
+      // Get the value from the input field
+      let text = qrtext.value;
+  
+      // Check if the input is empty
+      if (text.trim() === "") {
+          alert("Please enter some text to generate a QR code.");
+          return;
+      }
+  
+      // Encode the input value to include in the QR code URL
+      let encodedText = encodeURIComponent(text);
+  
+      // Set the QR code image source URL
+      qrimg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodedText;
+  }
+  </script>
+
+ <!--first js failed code,saw this online
+
+<!--<Script>
+  document.addEventListener("DOMContentLoaded", function(){
+  let imgbox = document.getElementById("imgbox")
+  let qrimg = document.getElementById("qrimg")
+  let qrtext = document.getElementById("qrtext")},
+
+  function generateQR(){
+    qrimg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrtext.value; 
+  });
+</Script>-->
+</body>
+</html>

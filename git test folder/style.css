@@ -4,10 +4,13 @@
 
 body{
     background-color: #262a2f;
-    color: aliceblue;
-   
-    
+    color: aliceblue; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }
+
+
 .section{
     width: 400px;
     padding: 25px 35px;
